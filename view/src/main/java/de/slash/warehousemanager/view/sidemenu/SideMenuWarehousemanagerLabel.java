@@ -1,0 +1,27 @@
+package de.slash.warehousemanager.view.sidemenu;
+
+import de.slash.warehousemanager.util.ColorConstants;
+import de.slash.warehousemanager.util.StringConstants;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+
+public class SideMenuWarehousemanagerLabel extends JLabel
+{
+    public SideMenuWarehousemanagerLabel(String text)
+    {
+        super(text);
+        initializeClass();
+    }
+
+    private void initializeClass()
+    {
+        setFont(new Font(StringConstants.FONT_NAME, Font.BOLD, 22));
+        setOpaque(true);
+        setBackground(ColorConstants.BLUE_VS);
+        setForeground(Color.WHITE);
+        setBorder(new EmptyBorder(15, 10, 15, 10));
+        setHorizontalAlignment(CENTER);
+    }
+}
