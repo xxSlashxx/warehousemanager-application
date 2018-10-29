@@ -1,4 +1,4 @@
-package de.slash.warehousemanager.view;
+package de.slash.warehousemanager.view.statusbar;
 
 import javax.swing.*;
 import java.text.SimpleDateFormat;
@@ -19,8 +19,8 @@ public class TimerThread extends Thread
     private void initializeVariables(JLabel timeLabel)
     {
         this.timeLabel = timeLabel;
-        this.timeFormat = new SimpleDateFormat("hh:mm:ss");
-        this.isRunning = true;
+        timeFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        isRunning = true;
     }
 
     @Override

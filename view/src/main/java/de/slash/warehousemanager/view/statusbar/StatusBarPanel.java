@@ -1,4 +1,4 @@
-package de.slash.warehousemanager.view;
+package de.slash.warehousemanager.view.statusbar;
 
 import de.slash.warehousemanager.util.ColorConstants;
 
@@ -6,13 +6,13 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class StatusPanel extends JPanel
+public class StatusBarPanel extends JPanel
 {
     private JLabel statusField;
     private JLabel timeLabel;
     private TimerThread timer;
 
-    public StatusPanel()
+    public StatusBarPanel()
     {
         initializeClass();
         initializeVariables();
@@ -22,16 +22,16 @@ public class StatusPanel extends JPanel
 
     private void initializeClass()
     {
-        this.setBorder(new EmptyBorder(0, 0, 0, 10));
-        this.setBackground(ColorConstants.AZURE_BLUE);
-        this.statusField = new JLabel();
-        this.timeLabel = new JLabel();
-        this.timer = new TimerThread(timeLabel);
+        setBorder(new EmptyBorder(0, 0, 0, 10));
+        setBackground(ColorConstants.BLUE_VS);
     }
 
     private void initializeVariables()
     {
-        this.timeLabel.setForeground(Color.WHITE);
+        statusField = new JLabel();
+        timeLabel = new JLabel();
+        timer = new TimerThread(timeLabel);
+        timeLabel.setForeground(Color.WHITE);
     }
 
     private void constructLayout()
