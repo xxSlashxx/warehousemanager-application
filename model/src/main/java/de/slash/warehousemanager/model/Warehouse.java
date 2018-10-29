@@ -8,11 +8,14 @@ public class Warehouse
 
     private String description;
 
-    public Warehouse(int id, String name, String description)
+    private int capacityUtilization;
+
+    public Warehouse(int id, String name, String description, int capacityUtilization)
     {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.capacityUtilization = capacityUtilization;
     }
 
     public int getId()
@@ -43,5 +46,15 @@ public class Warehouse
     public void setDescription(String description)
     {
         this.description = description;
+    }
+
+    public int getCapacityUtilization()
+    {
+        return capacityUtilization;
+    }
+
+    public void setCapacityUtilization(int capacityUtilization)
+    {
+        this.capacityUtilization = capacityUtilization;
     }
 }
