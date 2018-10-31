@@ -2,6 +2,7 @@ package de.slash.warehousemanager.view.main;
 
 import de.slash.warehousemanager.model.Warehouse;
 import de.slash.warehousemanager.util.ColorConstants;
+import de.slash.warehousemanager.util.StringConstants;
 import de.slash.warehousemanager.view.common.ContentTable;
 import de.slash.warehousemanager.view.warehouse.WarehouseTableModel;
 import org.jdesktop.swingx.decorator.ColorHighlighter;
@@ -41,7 +42,7 @@ public class WarehouseContentPanel extends JPanel
 
     private void addComponents()
     {
-        add(new ContentHeaderLabel("Warehouses"), BorderLayout.NORTH);
+        add(new ContentHeaderLabel(StringConstants.SIDE_MENU_WAREHOUSES), BorderLayout.NORTH);
         add(new JScrollPane(warehouseTable), BorderLayout.CENTER);
     }
 
