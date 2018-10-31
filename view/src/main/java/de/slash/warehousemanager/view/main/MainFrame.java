@@ -23,7 +23,7 @@ public class MainFrame extends JFrame
         super(StringConstants.APP_NAME);
         initializeClass();
         initializeVariables();
-        constructFrameLayout();
+        addComponents();
         refreshTable();
     }
 
@@ -33,6 +33,7 @@ public class MainFrame extends JFrame
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+        setLayout(new BorderLayout());
     }
 
     private void initializeVariables()
@@ -43,9 +44,8 @@ public class MainFrame extends JFrame
         warehouseService = new WarehouseService();
     }
 
-    private void constructFrameLayout()
+    private void addComponents()
     {
-        setLayout(new BorderLayout());
         add(tablePanel, BorderLayout.CENTER);
         add(statusPanel, BorderLayout.SOUTH);
         add(sideMenuPanel, BorderLayout.WEST);
