@@ -13,7 +13,7 @@ public class WarehouseTableModel extends AbstractTableModel
 
     public WarehouseTableModel()
     {
-        this.warehouseList = new ArrayList<>();
+        warehouseList = new ArrayList<>();
     }
 
     @Override
@@ -25,19 +25,19 @@ public class WarehouseTableModel extends AbstractTableModel
     @Override
     public String getColumnName(int column)
     {
-        return this.colNames[column];
+        return colNames[column];
     }
 
     @Override
     public int getRowCount()
     {
-        return this.warehouseList.size();
+        return warehouseList.size();
     }
 
     @Override
     public Object getValueAt(int row, int column)
     {
-        Warehouse warehouse = this.warehouseList.get(row);
+        Warehouse warehouse = warehouseList.get(row);
 
         switch (column)
         {

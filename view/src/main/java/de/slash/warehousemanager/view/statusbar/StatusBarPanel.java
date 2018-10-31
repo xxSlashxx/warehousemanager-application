@@ -43,11 +43,11 @@ public class StatusBarPanel extends JPanel
 
     private void startTimer()
     {
-        this.timer.start();
+        timer.start();
     }
 
     public void stopTimer()
     {
-        this.timer.setRunning(false);
+        timer.setRunning(false);
     }
 }
