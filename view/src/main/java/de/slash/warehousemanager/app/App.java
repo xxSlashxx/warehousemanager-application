@@ -1,6 +1,6 @@
 package de.slash.warehousemanager.app;
 
-import de.slash.warehousemanager.view.MainFrame;
+import de.slash.warehousemanager.view.main.MainFrame;
 
 import javax.swing.*;
 
