@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainFrame extends JFrame
 {
-    private ContentPanel tablePanel;
+    private WarehouseContentPanel tablePanel;
     private StatusBarPanel statusPanel;
     private SideMenuPanel sideMenuPanel;
     private WarehouseService warehouseService;
@@ -38,7 +38,7 @@ public class MainFrame extends JFrame
 
     private void initializeVariables()
     {
-        tablePanel = new ContentPanel();
+        tablePanel = new WarehouseContentPanel();
         statusPanel = new StatusBarPanel();
         sideMenuPanel = new SideMenuPanel();
         warehouseService = new WarehouseService();
