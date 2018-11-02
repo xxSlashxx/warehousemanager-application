@@ -9,14 +9,14 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 
-public class SideMenuButton extends JButton
+public class SideMenuButton extends JButton implements ChangeListener
 {
     public SideMenuButton(String text, ImageIcon icon)
     {
         super(text, icon);
         initializeClass();
         initializeBorder();
-        addButtonListener();
+        addButtonChangeListener();
     }
 
     private void initializeClass()
@@ -38,33 +38,23 @@ public class SideMenuButton extends JButton
         setBorder(BorderFactory.createCompoundBorder(outsideBorder, insideBorder));
     }
 
-    private void addButtonListener()
+    private void addButtonChangeListener()
     {
-        getModel().addChangeListener(new SidePanelButtonChangeListener(this));
+        getModel().addChangeListener(this);
     }
 
-    private class SidePanelButtonChangeListener implements ChangeListener
+    @Override
+    public void stateChanged(ChangeEvent e)
     {
-        JButton button;
+        ButtonModel model = (ButtonModel) e.getSource();
 
-        private SidePanelButtonChangeListener(JButton button)
+        if (model.isRollover())
         {
-            this.button = button;
+            setBackground(ColorConstants.BLUE_VS);
         }
-
-        @Override
-        public void stateChanged(ChangeEvent e)
+        else
         {
-            ButtonModel model = (ButtonModel) e.getSource();
-
-            if (model.isRollover())
-            {
-                button.setBackground(ColorConstants.BLUE_VS);
-            }
-            else
-            {
-                button.setBackground(null);
-            }
+            setBackground(null);
         }
     }
 }
