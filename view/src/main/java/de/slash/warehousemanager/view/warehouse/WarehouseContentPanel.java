@@ -1,10 +1,13 @@
-package de.slash.warehousemanager.view.main;
+package de.slash.warehousemanager.view.warehouse;
 
 import de.slash.warehousemanager.model.Warehouse;
+import de.slash.warehousemanager.service.IService;
+import de.slash.warehousemanager.service.WarehouseService;
 import de.slash.warehousemanager.util.ColorConstants;
 import de.slash.warehousemanager.util.StringConstants;
+import de.slash.warehousemanager.view.common.ContentPanel;
 import de.slash.warehousemanager.view.common.ContentTable;
-import de.slash.warehousemanager.view.warehouse.WarehouseTableModel;
+import de.slash.warehousemanager.view.main.ContentHeaderLabel;
 import org.jdesktop.swingx.decorator.ColorHighlighter;
 import org.jdesktop.swingx.decorator.Highlighter;
 import org.jdesktop.swingx.decorator.PatternPredicate;
@@ -15,7 +18,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WarehouseContentPanel extends JPanel
+public class WarehouseContentPanel extends ContentPanel<Warehouse>
 {
     private ContentTable warehouseTable;
     private WarehouseTableModel warehouseTableModel;
@@ -54,6 +57,12 @@ public class WarehouseContentPanel extends JPanel
     public void updateTable()
     {
         warehouseTableModel.updateTable();
+    }
+
+    @Override
+    public IService getService()
+    {
+        return new WarehouseService();
     }
 
     private List<Highlighter> createHighlighters()

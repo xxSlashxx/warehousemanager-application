@@ -1,22 +1,20 @@
 package de.slash.warehousemanager.view.main;
 
-import de.slash.warehousemanager.model.Warehouse;
-import de.slash.warehousemanager.service.WarehouseService;
 import de.slash.warehousemanager.util.NumberConstants;
 import de.slash.warehousemanager.util.StringConstants;
+import de.slash.warehousemanager.view.common.ContentCardPanel;
+import de.slash.warehousemanager.view.common.IContentPanel;
 import de.slash.warehousemanager.view.sidemenu.SideMenuPanel;
 import de.slash.warehousemanager.view.statusbar.StatusBarPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class MainFrame extends JFrame
 {
-    private WarehouseContentPanel tablePanel;
+    private ContentCardPanel contentCardPanel;
     private StatusBarPanel statusPanel;
     private SideMenuPanel sideMenuPanel;
-    private WarehouseService warehouseService;
 
     public MainFrame()
     {
@@ -38,28 +36,29 @@ public class MainFrame extends JFrame
 
     private void initializeVariables()
     {
-        tablePanel = new WarehouseContentPanel();
+        contentCardPanel = new ContentCardPanel();
         statusPanel = new StatusBarPanel();
-        sideMenuPanel = new SideMenuPanel();
-        warehouseService = new WarehouseService();
+        sideMenuPanel = new SideMenuPanel(this);
     }
 
     private void addComponents()
     {
-        add(tablePanel, BorderLayout.CENTER);
+        add(contentCardPanel, BorderLayout.CENTER);
         add(statusPanel, BorderLayout.SOUTH);
         add(sideMenuPanel, BorderLayout.WEST);
     }
 
     private void refreshTable()
     {
-        List<Warehouse> warehouses = loadWarehouses();
-        tablePanel.setTableModel(warehouses);
-        tablePanel.updateTable();
+        IContentPanel contentPanel = contentCardPanel.getCurrentVisiblePanel();
+        contentPanel.setTableModel(contentPanel.getService().getAll());
+        contentPanel.updateTable();
     }
 
-    private List<Warehouse> loadWarehouses()
+    public void switchContentPanel(String panelName)
     {
-        return warehouseService.getAllWarehouses();
+        CardLayout cardLayout = (CardLayout) contentCardPanel.getLayout();
+        cardLayout.show(contentCardPanel, panelName);
+        refreshTable();
     }
 }

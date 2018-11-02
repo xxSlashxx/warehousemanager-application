@@ -2,16 +2,23 @@ package de.slash.warehousemanager.view.sidemenu;
 
 import de.slash.warehousemanager.util.ColorConstants;
 import de.slash.warehousemanager.util.StringConstants;
+import de.slash.warehousemanager.view.main.MainFrame;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class SideMenuPanel extends JPanel
 {
-    public SideMenuPanel()
+    private MainFrame frame;
+
+    public SideMenuPanel(MainFrame frame)
     {
+        this.frame = frame;
+
         initalizeClass();
         addComponents();
     }
@@ -32,12 +39,27 @@ public class SideMenuPanel extends JPanel
 
     private void addButtons()
     {
-        add(new SideMenuButton(StringConstants.SIDE_MENU_WAREHOUSES, createImageIcon("/warehouse.png")), "wrap -1");
-        add(new SideMenuButton(StringConstants.SIDE_MENU_STORAGE_BINS, createImageIcon("/storage_bin.png")), "wrap -1");
-        add(new SideMenuButton(StringConstants.SIDE_MENU_HANDLING_UNITS, createImageIcon("/handling_unit.png")), "wrap -1");
-        add(new SideMenuButton(StringConstants.SIDE_MENU_ARTICLES, createImageIcon("/article.png")), "wrap -1");
-        add(new SideMenuButton(StringConstants.SIDE_MENU_ORDERS, createImageIcon("/order.png")), "wrap -1");
-        add(new SideMenuButton(StringConstants.SIDE_MENU_CUSTOMERS, createImageIcon("/customer.png")));
+        add(createButton(StringConstants.SIDE_MENU_WAREHOUSES, "/warehouse.png"), "wrap -1");
+        add(createButton(StringConstants.SIDE_MENU_STORAGE_BINS, "/storage_bin.png"), "wrap -1");
+        add(createButton(StringConstants.SIDE_MENU_HANDLING_UNITS, "/handling_unit.png"), "wrap -1");
+        add(createButton(StringConstants.SIDE_MENU_ARTICLES, "/article.png"), "wrap -1");
+        add(createButton(StringConstants.SIDE_MENU_ORDERS, "/order.png"), "wrap -1");
+        add(createButton(StringConstants.SIDE_MENU_CUSTOMERS, "/customer.png"));
+    }
+
+    private SideMenuButton createButton(final String text, String imageIconPath)
+    {
+        SideMenuButton sideMenuButton = new SideMenuButton(text, createImageIcon(imageIconPath));
+        sideMenuButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                frame.switchContentPanel(text);
+            }
+        });
+
+        return sideMenuButton;
     }
 
     private ImageIcon createImageIcon(String path)
