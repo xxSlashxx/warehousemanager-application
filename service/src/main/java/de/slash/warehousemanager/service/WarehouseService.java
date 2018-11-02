@@ -5,17 +5,18 @@ import de.slash.warehousemanager.model.Warehouse;
 
 import java.util.List;
 
-public class WarehouseService
+public class WarehouseService implements IService<Warehouse>
 {
     private Database database;
 
     public WarehouseService()
     {
-        this.database = new Database();
+        database = new Database();
     }
 
-    public List<Warehouse> getAllWarehouses()
+    @Override
+    public List<Warehouse> getAll()
     {
-        return this.database.getAllWarehouses();
+        return database.getAllWarehouses();
     }
 }
