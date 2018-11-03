@@ -1,18 +1,31 @@
-package de.slash.warehousemanager.model;
+package de.slash.warehousemanager.model.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "WAREHOUSE")
 public class Warehouse
 {
+    @Id
+    @GeneratedValue
+    @Column
     private int id;
 
+    @Column
     private String name;
 
+    @Column
     private String description;
 
+    @Column(name="capacity_utilization")
     private int capacityUtilization;
 
-    public Warehouse(int id, String name, String description, int capacityUtilization)
+    public Warehouse()
     {
-        this.id = id;
+    }
+
+    public Warehouse(String name, String description, int capacityUtilization)
+    {
         this.name = name;
         this.description = description;
         this.capacityUtilization = capacityUtilization;
