@@ -4,5 +4,7 @@ import java.util.List;
 
 public interface IService<T>
 {
-     List<T> getAll();
+    List<T> getAll();
+
+    void insert(T t);
 }
