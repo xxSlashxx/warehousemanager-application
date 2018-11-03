@@ -1,6 +1,6 @@
 package de.slash.warehousemanager.view.storagebin;
 
-import de.slash.warehousemanager.model.StorageBin;
+import de.slash.warehousemanager.model.entity.StorageBin;
 import de.slash.warehousemanager.service.IService;
 import de.slash.warehousemanager.service.StorageBinService;
 import de.slash.warehousemanager.util.ColorConstants;

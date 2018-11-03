@@ -1,6 +1,6 @@
 package de.slash.warehousemanager.view.storagebin;
 
-import de.slash.warehousemanager.model.StorageBin;
+import de.slash.warehousemanager.model.entity.StorageBin;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;

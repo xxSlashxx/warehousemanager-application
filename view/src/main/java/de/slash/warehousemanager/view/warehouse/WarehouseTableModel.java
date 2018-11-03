@@ -1,6 +1,6 @@
 package de.slash.warehousemanager.view.warehouse;
 
-import de.slash.warehousemanager.model.Warehouse;
+import de.slash.warehousemanager.model.entity.Warehouse;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;

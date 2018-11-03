@@ -1,6 +1,6 @@
 package de.slash.warehousemanager.view.warehouse;
 
-import de.slash.warehousemanager.model.Warehouse;
+import de.slash.warehousemanager.model.entity.Warehouse;
 import de.slash.warehousemanager.service.IService;
 import de.slash.warehousemanager.service.WarehouseService;
 import de.slash.warehousemanager.util.ColorConstants;
