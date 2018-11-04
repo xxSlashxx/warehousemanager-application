@@ -29,12 +29,12 @@ public class WarehouseDAO implements IDAO<Warehouse>
     @Override
     public void update(Warehouse warehouse)
     {
-        entityManagerHandler.deleteEntity(warehouse);
+        entityManagerHandler.updateEntity(warehouse);
     }
 
     @Override
     public void delete(Warehouse warehouse)
     {
-        entityManagerHandler.updateEntity(warehouse);
+        entityManagerHandler.deleteEntity(warehouse);
     }
 }

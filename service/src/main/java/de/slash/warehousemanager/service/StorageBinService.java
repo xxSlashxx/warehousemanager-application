@@ -35,4 +35,10 @@ public class StorageBinService implements IService<StorageBin>
     {
         storageBinDAO.save(storageBin);
     }
+
+    @Override
+    public void delete(StorageBin storageBin)
+    {
+        storageBinDAO.delete(storageBin);
+    }
 }

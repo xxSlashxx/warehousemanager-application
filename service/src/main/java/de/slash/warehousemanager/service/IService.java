@@ -7,4 +7,6 @@ public interface IService<T>
     List<T> getAll();
 
     void insert(T t);
+
+    void delete(T t);
 }

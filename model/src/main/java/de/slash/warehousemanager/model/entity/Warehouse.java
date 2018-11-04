@@ -24,6 +24,12 @@ public class Warehouse
     {
     }
 
+    public Warehouse(String name, String description)
+    {
+        this.name = name;
+        this.description = description;
+    }
+
     public Warehouse(String name, String description, int capacityUtilization)
     {
         this.name = name;

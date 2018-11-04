@@ -34,4 +34,10 @@ public class WarehouseService implements IService<Warehouse>
     {
         warehouseDAO.save(warehouse);
     }
+
+    @Override
+    public void delete(Warehouse warehouse)
+    {
+        warehouseDAO.delete(warehouse);
+    }
 }

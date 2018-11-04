@@ -11,4 +11,8 @@ public interface IContentPanel<T>
     void updateTable();
 
     IService getService();
+
+    void showAddDialog();
+
+    void showDeleteDialog();
 }
