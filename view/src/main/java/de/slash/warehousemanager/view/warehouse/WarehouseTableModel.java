@@ -59,6 +59,11 @@ public class WarehouseTableModel extends AbstractTableModel
         this.warehouseList = warehouseList;
     }
 
+    public List<Warehouse> getWarehouses()
+    {
+        return warehouseList;
+    }
+
     public void updateTable()
     {
         fireTableDataChanged();

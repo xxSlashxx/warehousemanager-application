@@ -23,4 +23,18 @@ public class StringConstants
     public static final String SIDE_MENU_ORDERS = "Orders";
 
     public static final String SIDE_MENU_CUSTOMERS = "Customers";
+
+    public static final String DIALOG_CANCEL = "Cancel";
+
+    public static final String DIALOG_SAVE = "Save";
+
+    public static final String ADD_WAREHOUSE_DIALOG_TITLE = "Add warehouse";
+
+    public static final String ADD_WAREHOUSE_DIALOG_NAME_LABEL = "Name:";
+
+    public static final String ADD_WAREHOUSE_DIALOG_DESCRIPTION_LABEL = "Description:";
+
+    public static final String DELETE_WAREHOUSE_DIALOG_TITLE = "Delete warehouse";
+
+    public static final String DELETE_WAREHOUSE_DIALOG_MESSAGE = "Do you really want to delete warehouse %s?";
 }

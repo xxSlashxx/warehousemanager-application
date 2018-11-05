@@ -7,53 +7,40 @@ import de.slash.warehousemanager.util.ColorConstants;
 import de.slash.warehousemanager.util.StringConstants;
 import de.slash.warehousemanager.view.common.ContentPanel;
 import de.slash.warehousemanager.view.common.ContentTable;
-import de.slash.warehousemanager.view.main.ContentHeaderLabel;
+import de.slash.warehousemanager.view.main.MainFrame;
 import org.jdesktop.swingx.decorator.ColorHighlighter;
 import org.jdesktop.swingx.decorator.Highlighter;
 import org.jdesktop.swingx.decorator.PatternPredicate;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WarehouseContentPanel extends ContentPanel<Warehouse>
 {
-    private ContentTable warehouseTable;
     private WarehouseTableModel warehouseTableModel;
 
     public WarehouseContentPanel()
     {
-        initializeClass();
+        super(StringConstants.SIDE_MENU_WAREHOUSES);
         initializeVariables();
         addComponents();
-    }
-
-    private void initializeClass()
-    {
-        setBackground(ColorConstants.GRAY_LIGHT);
-        setLayout(new BorderLayout());
-        setBorder(new EmptyBorder(0, 30, 30, 30));
     }
 
     private void initializeVariables()
     {
         warehouseTableModel = new WarehouseTableModel();
-        warehouseTable = new ContentTable(warehouseTableModel, createHighlighters());
+        contentTable = new ContentTable(warehouseTableModel, createHighlighters());
     }
 
-    private void addComponents()
-    {
-        add(new ContentHeaderLabel(StringConstants.SIDE_MENU_WAREHOUSES), BorderLayout.NORTH);
-        add(new JScrollPane(warehouseTable), BorderLayout.CENTER);
-    }
-
+    @Override
     public void setTableModel(List<Warehouse> warehouseList)
     {
         warehouseTableModel.setWarehouses(warehouseList);
     }
 
+    @Override
     public void updateTable()
     {
         warehouseTableModel.updateTable();
@@ -63,6 +50,33 @@ public class WarehouseContentPanel extends ContentPanel<Warehouse>
     public IService getService()
     {
         return new WarehouseService();
+    }
+
+    @Override
+    public void showAddDialog()
+    {
+        MainFrame frame = (MainFrame) SwingUtilities.getAncestorOfClass(MainFrame.class, this);
+        AddWarehouseDialog addWarehouseDialog = new AddWarehouseDialog(frame);
+        addWarehouseDialog.setVisible(true);
+    }
+
+    @Override
+    public void showDeleteDialog()
+    {
+        MainFrame frame = (MainFrame) SwingUtilities.getAncestorOfClass(MainFrame.class, this);
+        Warehouse warehouse = warehouseTableModel.getWarehouses().get(contentTable.convertRowIndexToModel(contentTable.getSelectedRow()));
+
+        int selectedOption = JOptionPane.showConfirmDialog(
+                frame,
+                String.format(StringConstants.DELETE_WAREHOUSE_DIALOG_MESSAGE, warehouse),
+                StringConstants.DELETE_WAREHOUSE_DIALOG_TITLE,
+                JOptionPane.YES_NO_OPTION);
+
+        if (selectedOption == JOptionPane.YES_OPTION)
+        {
+            getService().delete(warehouse);
+            frame.refreshTable();
+        }
     }
 
     private List<Highlighter> createHighlighters()

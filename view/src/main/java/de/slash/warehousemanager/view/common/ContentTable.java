@@ -6,6 +6,7 @@ import org.jdesktop.swingx.decorator.ColorHighlighter;
 import org.jdesktop.swingx.decorator.HighlightPredicate;
 import org.jdesktop.swingx.decorator.Highlighter;
 
+import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 import java.awt.*;
@@ -35,6 +36,7 @@ public class ContentTable extends JXTable
         setColumnControlVisible(true);
         setSelectionBackground(ColorConstants.BLUE_LIGHT);
         setSelectionForeground(Color.BLACK);
+        setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         HighlightPredicate.RowGroupHighlightPredicate predicate = new HighlightPredicate.RowGroupHighlightPredicate(1);
         addHighlighter(new ColorHighlighter(predicate, ColorConstants.GRAY_LIGHT, Color.BLACK));
     }

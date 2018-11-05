@@ -44,6 +44,11 @@
             <version>5.2</version>
         </dependency>
         <dependency>
+            <groupId>tablelayout</groupId>
+            <artifactId>TableLayout</artifactId>
+            <version>20050920</version>
+        </dependency>
+        <dependency>
             <groupId>warehousemanager-multi-app</groupId>
             <artifactId>service</artifactId>
             <version>1.0-SNAPSHOT</version>

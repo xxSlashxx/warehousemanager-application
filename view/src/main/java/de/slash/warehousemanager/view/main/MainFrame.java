@@ -48,7 +48,7 @@ public class MainFrame extends JFrame
         add(sideMenuPanel, BorderLayout.WEST);
     }
 
-    private void refreshTable()
+    public void refreshTable()
     {
         IContentPanel contentPanel = contentCardPanel.getCurrentVisiblePanel();
         contentPanel.setTableModel(contentPanel.getService().getAll());

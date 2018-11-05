@@ -76,4 +76,10 @@ public class Warehouse
     {
         this.capacityUtilization = capacityUtilization;
     }
+
+    @Override
+    public String toString()
+    {
+        return name;
+    }
 }
