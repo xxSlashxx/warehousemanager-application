@@ -1,6 +1,7 @@
 package de.slash.warehousemanager.view.sidemenu;
 
 import de.slash.warehousemanager.util.ColorConstants;
+import de.slash.warehousemanager.util.ImageIconCreator;
 import de.slash.warehousemanager.util.StringConstants;
 import de.slash.warehousemanager.view.main.MainFrame;
 import net.miginfocom.swing.MigLayout;
@@ -9,7 +10,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 
 public class SideMenuPanel extends JPanel
 {
@@ -32,7 +32,7 @@ public class SideMenuPanel extends JPanel
 
     private void addComponents()
     {
-        add(new SideMenuWarehousemanagerLabel(StringConstants.APP_NAME), "wrap 15");
+        add(new SideMenuWarehousemanagerLabel(), "wrap 15");
         add(new SideMenuHeaderLabel(StringConstants.SIDE_MENU_HEADER), "wrap 10");
         addButtons();
     }
@@ -49,7 +49,7 @@ public class SideMenuPanel extends JPanel
 
     private SideMenuButton createButton(final String text, String imageIconPath)
     {
-        SideMenuButton sideMenuButton = new SideMenuButton(text, createImageIcon(imageIconPath));
+        SideMenuButton sideMenuButton = new SideMenuButton(text, ImageIconCreator.createImageIcon(imageIconPath));
         sideMenuButton.addActionListener(new ActionListener()
         {
             @Override
@@ -60,11 +60,5 @@ public class SideMenuPanel extends JPanel
         });
 
         return sideMenuButton;
-    }
-
-    private ImageIcon createImageIcon(String path)
-    {
-        URL imageURL = getClass().getResource(path);
-        return new ImageIcon(imageURL);
     }
 }
