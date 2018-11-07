@@ -19,7 +19,7 @@ public class SideMenuWarehousemanagerLabel extends JLabel
         setOpaque(true);
         setBackground(ColorConstants.BLUE_VS);
         setForeground(Color.WHITE);
-        setBorder(new EmptyBorder(10, 45, 10, 45));
+        setBorder(new EmptyBorder(5, 45, 5, 45));
         setHorizontalAlignment(CENTER);
         setIcon(new ImageIcon(ImageIconCreator.createImageIcon("/logo.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
     }
