@@ -37,7 +37,7 @@ public class StorageBinContentPanel extends ContentPanel<StorageBin>
     }
 
     @Override
-    public IService getService()
+    public IService<StorageBin> getService()
     {
         return new StorageBinService();
     }

@@ -47,7 +47,7 @@ public class WarehouseContentPanel extends ContentPanel<Warehouse>
     }
 
     @Override
-    public IService getService()
+    public IService<Warehouse> getService()
     {
         return new WarehouseService();
     }

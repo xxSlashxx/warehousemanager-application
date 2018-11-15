@@ -10,7 +10,7 @@ public interface IContentPanel<T>
 
     void updateTable();
 
-    IService getService();
+    IService<T> getService();
 
     void showAddDialog();
 
