@@ -3,7 +3,7 @@ package de.slash.warehousemanager.view.sidemenu;
 import de.slash.warehousemanager.util.ColorConstants;
 import de.slash.warehousemanager.util.ImageIconCreator;
 import de.slash.warehousemanager.util.StringConstants;
-import de.slash.warehousemanager.view.main.MainFrame;
+import de.slash.warehousemanager.view.common.ICallback;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -13,11 +13,11 @@ import java.awt.event.ActionListener;
 
 public class SideMenuPanel extends JPanel
 {
-    private MainFrame frame;
+    private ICallback callback;
 
-    public SideMenuPanel(MainFrame frame)
+    public SideMenuPanel(ICallback callback)
     {
-        this.frame = frame;
+        this.callback = callback;
 
         initalizeClass();
         addComponents();
@@ -55,7 +55,7 @@ public class SideMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frame.switchContentPanel(text);
+                callback.switchView(text);
             }
         });
 

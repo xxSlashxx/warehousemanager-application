@@ -3,6 +3,7 @@ package de.slash.warehousemanager.view.main;
 import de.slash.warehousemanager.util.NumberConstants;
 import de.slash.warehousemanager.util.StringConstants;
 import de.slash.warehousemanager.view.common.ContentCardPanel;
+import de.slash.warehousemanager.view.common.ICallback;
 import de.slash.warehousemanager.view.common.IContentPanel;
 import de.slash.warehousemanager.view.sidemenu.SideMenuPanel;
 import de.slash.warehousemanager.view.statusbar.StatusBarPanel;
@@ -10,7 +11,7 @@ import de.slash.warehousemanager.view.statusbar.StatusBarPanel;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainFrame extends JFrame
+public class MainFrame extends JFrame implements ICallback
 {
     private ContentCardPanel contentCardPanel;
     private StatusBarPanel statusPanel;
@@ -55,10 +56,11 @@ public class MainFrame extends JFrame
         contentPanel.updateTable();
     }
 
-    public void switchContentPanel(String panelName)
+    @Override
+    public void switchView(String viewName)
     {
         CardLayout cardLayout = (CardLayout) contentCardPanel.getLayout();
-        cardLayout.show(contentCardPanel, panelName);
+        cardLayout.show(contentCardPanel, viewName);
         refreshTable();
     }
 }
