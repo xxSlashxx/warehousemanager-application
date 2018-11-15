@@ -42,9 +42,6 @@ public class SideMenuPanel extends JPanel
         add(createButton(StringConstants.SIDE_MENU_WAREHOUSES, "/warehouse.png"), "wrap -1");
         add(createButton(StringConstants.SIDE_MENU_STORAGE_BINS, "/storage_bin.png"), "wrap -1");
         add(createButton(StringConstants.SIDE_MENU_HANDLING_UNITS, "/handling_unit.png"), "wrap -1");
-        add(createButton(StringConstants.SIDE_MENU_ARTICLES, "/article.png"), "wrap -1");
-        add(createButton(StringConstants.SIDE_MENU_ORDERS, "/order.png"), "wrap -1");
-        add(createButton(StringConstants.SIDE_MENU_CUSTOMERS, "/customer.png"));
     }
 
     private SideMenuButton createButton(final String text, String imageIconPath)

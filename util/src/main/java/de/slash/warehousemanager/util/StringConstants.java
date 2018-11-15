@@ -18,12 +18,6 @@ public class StringConstants
 
     public static final String SIDE_MENU_HANDLING_UNITS = "Handling Units";
 
-    public static final String SIDE_MENU_ARTICLES = "Articles";
-
-    public static final String SIDE_MENU_ORDERS = "Orders";
-
-    public static final String SIDE_MENU_CUSTOMERS = "Customers";
-
     public static final String DIALOG_CANCEL = "Cancel";
 
     public static final String DIALOG_SAVE = "Save";

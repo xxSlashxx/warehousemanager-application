@@ -1,6 +1,7 @@
 package de.slash.warehousemanager.view.common;
 
 import de.slash.warehousemanager.util.StringConstants;
+import de.slash.warehousemanager.view.handlingunit.HandlingUnitContentPanel;
 import de.slash.warehousemanager.view.storagebin.StorageBinContentPanel;
 import de.slash.warehousemanager.view.warehouse.WarehouseContentPanel;
 
@@ -19,6 +20,7 @@ public class ContentCardPanel extends JPanel
     {
         add(new WarehouseContentPanel(), StringConstants.SIDE_MENU_WAREHOUSES);
         add(new StorageBinContentPanel(), StringConstants.SIDE_MENU_STORAGE_BINS);
+        add(new HandlingUnitContentPanel(), StringConstants.SIDE_MENU_HANDLING_UNITS);
     }
 
     public IContentPanel getCurrentVisiblePanel()
